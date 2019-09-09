@@ -1,11 +1,25 @@
 import React, { useState } from 'react'
+import Radium from 'radium'
+
 
 const styles = {
     done: {
-        color: "pink"
+        textDecoration: "line-through",
+        color:"#2e9afe",
+        ":hover": {
+            color:"#5858fa"
+        },
+        
+        
+
     },
     notDone: {
-        color: "green"
+        fontSize: "large;",
+        color:"#5858fa",
+        ":hover": {
+            color:"#2e9afe"
+        }
+    
     }    
 }
 
@@ -14,8 +28,9 @@ const Item = ({ todo }) => {
     return (
         <div onClick={(e) => setDone(!done)} style={done ? styles.done : styles.notDone}>
             {todo.name}
+            <input type="checkbox"/>
         </div>
     )
 }
 
-export default Item
+export default Radium(Item)
